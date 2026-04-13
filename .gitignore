@@ -1,0 +1,8 @@
+# DS Store
+.DS_Store
+
+# Binary files
+*.exe
+*.dll
+*.so
+*.dylib
