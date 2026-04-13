@@ -6,3 +6,22 @@
 *.dll
 *.so
 *.dylib
+
+# env files
+.env
+.venv/
+
+# cache files
+__pycache__/
+*.pyc
+
+data/raw/
+data/processed/
+
+# log files
+logs/
+*.parquet
+
+# IDE files
+.vscode/
+.idea/

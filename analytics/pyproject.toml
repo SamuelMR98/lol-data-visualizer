@@ -1,0 +1,15 @@
+[project]
+name = "ldv-analytics"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+  "requests>=2.31",
+  "python-dotenv>=1.0",
+  "polars>=0.20",
+  "pyarrow>=14.0",
+  "duckdb>=0.10",
+  "matplotlib>=3.8",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
