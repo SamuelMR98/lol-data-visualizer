@@ -1,8 +1,8 @@
+#!/usr/bin/env python3
 import sys
-from ldv.config import get_config
-from ldv.lol.ingest.riot_api import RiotAPI
-from ldv.lol.ingest.cache import ensure_dir, write_json, read_json
-
+from ldv_ana.config import get_config
+from ldv_ana.lol.ingest.riot_api import RiotAPI
+from ldv_ana.lol.ingest.cache import ensure_dir, write_json, read_json
 
 def main(match_id: str) -> None:
     cfg = get_config()
@@ -11,8 +11,8 @@ def main(match_id: str) -> None:
     ensure_dir(cfg.data_raw_matches)
     ensure_dir(cfg.data_raw_timelines)
 
-    match_path = f"{cfg.data_raw_matches}/{match_id}.json"
-    timeline_path = f"{cfg.data_raw_timelines}/{match_id}.json"
+    match_path = cfg.data_raw_matches / f"{match_id}.json"
+    timeline_path = cfg.data_raw_timelines / f"{match_id}.json"
 
     if read_json(match_path) is None:
         write_json(match_path, api.get_match(match_id))
@@ -26,8 +26,7 @@ def main(match_id: str) -> None:
     else:
         print(f"Timeline cached -> {timeline_path}")
 
-
 if __name__ == "__main__":
     if len(sys.argv) < 2:
-        raise SystemExit("Usage: python scripts/lol/ingest_match.py <match_id>")
+        raise SystemExit("Usage: python scripts/ingest_match.py <match_id>")
     main(sys.argv[1])

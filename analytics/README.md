@@ -21,3 +21,6 @@ source .venv/bin/activate
 pip install -U pip
 pip install -e .
 ```
+
+Match id = LA1_{match_id} (e.g. LA1_1234567890)
+This works for LAN, but for other regions the prefix may differ (e.g. NA1, EUW1, etc.). The prefix indicates the platform/region of the match. You can find the correct prefix for your region in the Riot API documentation or by checking existing match IDs from that region.
